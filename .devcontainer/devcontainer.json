@@ -1,0 +1,25 @@
+{
+    "name": "Go Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/go:latest",
+    "postCreateCommand": "go mod tidy",
+    "runArgs": [
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock" // Bind the Docker socket
+    ],
+    "customizations": {
+        "extensions": [
+            "golang.go"
+        ],
+        "vscode": {
+            "settings": {
+                "go.useLanguageServer": true,
+                "go.toolsEnvVars": {
+                    "GO111MODULE": "on"
+                }
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    }
+}
